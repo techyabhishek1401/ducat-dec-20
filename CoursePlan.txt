@@ -1,0 +1,50 @@
+Javascript
+    1)Variables
+    2)Loop,Map
+    3)Events
+    4)Call,bind,this
+    5)=> funnction
+
+ReactJs
+    1)CreateContent
+    2)SetState
+    3)Taking reference
+    4)Sum Of Numbers //task calculator app
+    5)Component Reuse
+    5)Sudoko,Ballon Game
+    6)Api Request (Axios)  
+    7)Form  //task -formik
+    8)Navigation 
+    9)Data Passing
+         a)Child to Parent
+         b)Parent to Child
+         c)Between siblings
+         d)Hybrid Relationships  
+    
+React Advance
+    10)Context Api
+    11)Redux
+    12)HOC
+    13)Styled Component
+    
+
+
+#---------------------------------------------<Nodejs & MongoDB>
+    1)Hello World
+    2)Star Printing
+    3)Express server
+    4)Routes
+    5)CRUD
+    6)Passport
+
+
+
+#--------------------------------------------<Ecommerce Project>
+    1)Registration
+    2)Login
+    3)Item Management
+    4)cart
+    5Payment gateway
+    
+
+//https://github.com/techyabhishek1401/ducat-dec-20.git

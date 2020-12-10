@@ -1,0 +1,19 @@
+<title>Star</title>
+<body>
+    <div id="test">hhh</div>
+</body>
+<script>
+    let div_ref=document.getElementById("test");
+    console.log(div_ref)
+let n=50;
+let t=""
+for(let i=0;i<n;i++){
+    for(let j=0;j<i;j++)
+    //console.log("*")
+    t=t+"*"
+    t=t+"\n"
+  
+}
+div_ref.innerText=t
+console.log(t)
+</script>
