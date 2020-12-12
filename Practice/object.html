@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<title>Object</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card bg-warning">
+            <h3>Name :<span id="name" class="text-white"></span></h3>
+            <h3>DOB :<span id="dob" class="text-white"></span></h3>
+            <h3>Department :<span id="dept" class="text-white"></span></h3>
+
+            <button id="submit" class="btn btn-danger">Show</button>
+        </div>
+   </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    let person={
+      basic:{ 
+            name:"Abhishek Kumar",
+            dob:"Jan 14 2020",
+            } ,
+    address:{
+        city:"Noida",
+        pincode:"201301"
+    },
+    department:"IT"
+    }
+
+
+    let btn_ref=document.getElementById("submit");
+   btn_ref.addEventListener("click",()=>{
+     console.log(document.querySelectorAll("span"))
+     let spans=document.querySelectorAll("span");
+     let name_ref=document.querySelector("#name");
+     let dob_ref=document.querySelector("#dob");
+     let dept_ref=document.querySelector("#dept");
+
+    //  name_ref.innerText=person.basic.name;
+    //  dob_ref.innerText=person.basic.dob;
+    //  dept_ref.innerText=person.department;
+    console.log(`Name:${name_ref}  DOB's:${dob_ref}`)   //backtick operator
+     spans[0].innerText=person.basic.name;
+     spans[1].innerText=person.basic.dob;
+     spans[2].innerText=person.department;
+   })
+</script>
+
+</body>
+</html>

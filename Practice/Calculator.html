@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+    .btn-round{
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+    }
+    .btn-gray{
+    background-color: gray;
+    }
+</style>
+<title>Calculator</title>
+</head>
+<body>
+    <div class="container ">
+        <div class="card bg-dark p-2" style="width: 300px;">
+            <input type="text" id="input" class="form-control" value="0">
+            
+            <div class="container-fluid ">
+                
+                <div class="row mt-2">
+                    <div class="col"><button class="btn btn-gray btn-round" id="c">C</button></div>
+                    <div class="col"><button class="btn btn-gray btn-round" id="equal">=</button></div>
+                    <div class="col"><button class="btn btn-gray btn-round" id="%">%</button></div>
+                    <div class="col"><button class="btn btn-warning btn-round" id="/">/</button></div>                   
+                </div>
+                <div class="row mt-2">
+                    <div class="col"><button class="btn btn-info btn-round" id="7">7</button></div>
+                    <div class="col"><button class="btn btn-info btn-round" id="8">8</button></div>
+                    <div class="col"><button class="btn btn-info btn-round" id="9">9</button></div>
+                    <div class="col"><button class="btn btn-warning btn-round" id="*">X</button></div>                   
+                </div>
+                <div class="row mt-2">
+                    <div class="col"><button class="btn btn-info btn-round" id="4">4</button></div>
+                    <div class="col"><button class="btn btn-info btn-round" id="5">5</button></div>
+                    <div class="col"><button class="btn btn-info btn-round" id="6">6</button></div>
+                    <div class="col"><button class="btn btn-warning btn-round" id="-">-</button></div>                   
+                </div>
+                <div class="row mt-2">
+                    <div class="col"><button class="btn btn-info btn-round" id="1">1</button></div>
+                    <div class="col"><button class="btn btn-info btn-round" id="2">2</button></div>
+                    <div class="col"><button class="btn btn-info btn-round" id="3">3</button></div>
+                    <div class="col"><button class="btn btn-warning btn-round" id="+">+</button></div>                   
+                </div>
+            </div>
+           
+        </div>
+   </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  let  btn_ref=document.querySelectorAll(".btn");
+   let input_ref=document.querySelector("#input")
+    console.log(btn_ref)
+    let btn_click_function=(e)=>{
+        console.log("id:",e.target.id)
+        input_ref.value=input_ref.value+e.target.id
+    }
+
+    btn_ref.forEach(btn=>{
+        btn.addEventListener("click",btn_click_function)
+    })
+    
+   
+</script>
+
+</body>
+</html>
