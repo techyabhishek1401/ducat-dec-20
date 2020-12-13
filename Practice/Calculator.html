@@ -24,13 +24,13 @@
 <body>
     <div class="container ">
         <div class="card bg-dark p-2" style="width: 300px;">
-            <input type="text" id="input" class="form-control" value="0">
+            <input type="text" id="input" class="form-control" value="">
             
             <div class="container-fluid ">
                 
                 <div class="row mt-2">
                     <div class="col"><button class="btn btn-gray btn-round" id="c">C</button></div>
-                    <div class="col"><button class="btn btn-gray btn-round" id="equal">=</button></div>
+                    <div class="col"><button class=" btn-gray btn-round" id="equal">=</button></div>
                     <div class="col"><button class="btn btn-gray btn-round" id="%">%</button></div>
                     <div class="col"><button class="btn btn-warning btn-round" id="/">/</button></div>                   
                 </div>
@@ -63,6 +63,7 @@
 <script>
   let  btn_ref=document.querySelectorAll(".btn");
    let input_ref=document.querySelector("#input")
+   let result_ref=document.querySelector('#equal')
     console.log(btn_ref)
     let btn_click_function=(e)=>{
         console.log("id:",e.target.id)
@@ -73,7 +74,10 @@
         btn.addEventListener("click",btn_click_function)
     })
     
-   
+   result_ref.addEventListener('click',()=>{
+       let result=eval(input_ref.value);
+       input_ref.value=result;
+   })
 </script>
 
 </body>

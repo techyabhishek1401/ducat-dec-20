@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<title>Ballon</title>
+<style>
+   
+.center{
+    position: absolute;
+    left:50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.arrow{
+    position: relative;
+    width:100px;
+    border:2px solid black;
+    
+}
+.ballon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: indigo;
+    position: relative;
+    left:85%;
+}
+.b1{   
+    top:30px;    
+}
+.b2{   
+    top:90px;    
+}
+.active{
+    background-color: red !important;
+}
+</style>
+</head>
+<body >
+
+
+    <div class="container bg-success cont">
+        <div class="card border border-danger bg-danger center" style="width: 500px;height: 300px;">
+            <div class="arrow">              
+            </div>
+            <div class="ballon b1"></div>
+            <div class="ballon b2"></div>
+        </div>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+    let top_ps=10;
+    let left_ps=10;
+    let arr_ref=document.querySelector('.arrow');
+    let board_ref=document.querySelector('.card');
+    let ballon_ref=document.querySelectorAll('.ballon');
+
+  selectedBallon=(e)=>{
+    console.log("e.target.value:",e.target.offsetTop)
+ 
+    let active_ballon=document.querySelector('.active')
+    console.log('active:',active_ballon)
+    if(active_ballon){
+        active_ballon.classList.remove("active")
+    }
+    e.target.classList.add('active')
+    
+  }
+    ballon_ref.forEach(ballon => {
+        ballon.addEventListener('click',selectedBallon)
+        
+    });
+  
+
+    document.addEventListener("keydown",(e)=>{
+      
+       if(e.keyCode==40 && top_ps<300){
+           top_ps=top_ps+10;
+           
+           arr_ref.style.top=`${top_ps}px`
+       }
+       if(e.keyCode==38 && top_ps>0){
+           top_ps=top_ps-10;
+           arr_ref.style.top=`${top_ps}px`
+       }
+       if(e.keyCode==13 ){
+           let arrow_intrvl=setInterval(()=>{
+               if(left_ps==390){
+                   clearInterval(arrow_intrvl);
+                   setTimeout(()=>{
+                    left_ps=0;
+                    top_ps=0;
+                  arr_ref.style.left=`${left_ps}px`;
+                  arr_ref.style.top=`${top_ps}px`                   
+                   },300)
+               }
+            left_ps+=10;
+           arr_ref.style.left=`${left_ps}px`
+           },30)
+         
+       }
+       
+    })
+
+
+    
+</script>
+</body>
+</html>
