@@ -53,8 +53,12 @@
                     <div class="col"><button class="btn btn-warning btn-round" id="+">+</button></div>                   
                 </div>
             </div>
-           
+            
         </div>
+        <table border="2">
+            <tr class="tr"></tr>
+         </table>
+        <button id="print">Printy Table</button>
    </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -64,14 +68,27 @@
   let  btn_ref=document.querySelectorAll(".btn");
    let input_ref=document.querySelector("#input")
    let result_ref=document.querySelector('#equal')
-    console.log(btn_ref)
-    let btn_click_function=(e)=>{
+   let some_arr=[1,2,3,4,5,6,7,"a","b",{name:"Abhishek"}];
+   let print_ref=document.getElementById("print");
+   let tr_ref=document.querySelector(".tr")
+   let some_text="";
+    
+    print_ref.addEventListener("click",(e)=>{
+    tr_ref.innerHTML=some_text;
+    })
+
+    let btn_click_function=(e)=>{       
         console.log("id:",e.target.id)
         input_ref.value=input_ref.value+e.target.id
     }
 
     btn_ref.forEach(btn=>{
         btn.addEventListener("click",btn_click_function)
+    })
+    
+    some_arr.forEach(function (array_ele,index){
+        console.log(`Array Element:${array_ele}   Element Index:${index}`)
+        some_text+=`<td>${array_ele}</td>`;
     })
     
    result_ref.addEventListener('click',()=>{

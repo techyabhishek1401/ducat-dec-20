@@ -36,6 +36,7 @@
 }
 .b2{   
     top:90px;    
+   
 }
 .active{
     background-color: red !important;
@@ -62,24 +63,34 @@
     let arr_ref=document.querySelector('.arrow');
     let board_ref=document.querySelector('.card');
     let ballon_ref=document.querySelectorAll('.ballon');
-
+    let ballon_top=0;
+    let active_ballon;
+    let selected;
+    
+ //-------------------------------------<Selelcting The Ballon>
   selectedBallon=(e)=>{
     console.log("e.target.value:",e.target.offsetTop)
+    ballon_top=e.target.offsetTop;
  
-    let active_ballon=document.querySelector('.active')
+     active_ballon=document.querySelector('.active')
     console.log('active:',active_ballon)
     if(active_ballon){
         active_ballon.classList.remove("active")
     }
-    e.target.classList.add('active')
+    active_ballon=e.target;
+   active_ballon.classList.add('active')
     
   }
+    
+
+ //-------------------------------------<Adding EventLitener to Ballons>
     ballon_ref.forEach(ballon => {
         ballon.addEventListener('click',selectedBallon)
         
     });
   
 
+//-------------------------------------<Adding KeyDown event to the Document>
     document.addEventListener("keydown",(e)=>{
       
        if(e.keyCode==40 && top_ps<300){
@@ -94,15 +105,20 @@
        if(e.keyCode==13 ){
            let arrow_intrvl=setInterval(()=>{
                if(left_ps==390){
+
+                if(top_ps>= ballon_top && top_ps<=ballon_top+50){
+                    active_ballon.style.display="none"
+                  }
+
                    clearInterval(arrow_intrvl);
                    setTimeout(()=>{
                     left_ps=0;
                     top_ps=0;
-                  arr_ref.style.left=`${left_ps}px`;
-                  arr_ref.style.top=`${top_ps}px`                   
+                     arr_ref.style.left=`${left_ps}px`;
+                      arr_ref.style.top=`${top_ps}px`                   
                    },300)
                }
-            left_ps+=10;
+            left_ps+=10;           
            arr_ref.style.left=`${left_ps}px`
            },30)
          
@@ -111,7 +127,7 @@
     })
 
 
-    
+
 </script>
 </body>
 </html>

@@ -1,0 +1,28 @@
+<body>
+    <div id="root"></div>
+
+
+    <script src="./babel.js"></script>
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+  
+    <script type="text/babel">   
+     
+      const Bye=()=>{
+          return <h5>Bye Bye</h5>
+       }
+       const  Content= () =>{
+            return  <h1>Say Hello To React JS</h1>
+        }
+
+        const Parent=()=>{
+            return <div>
+                    <Content />
+                    <Bye /> <Bye /> <Content /> <Bye /> <Bye /> <Bye /> <Bye /> <Bye /> <Bye />
+                    <Content />
+                   </div>
+        }
+
+        ReactDOM.render(<Parent />,document.getElementById("root"))
+    </script>
+</body>
