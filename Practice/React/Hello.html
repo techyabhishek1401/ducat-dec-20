@@ -8,7 +8,8 @@
   
     <script type="text/babel">   
      
-      const Bye=()=>{
+    //  ----------------------<Function Component>
+        const Bye=()=>{
           return <h5>Bye Bye</h5>
        }
        const  Content= () =>{
@@ -17,10 +18,44 @@
 
         const Parent=()=>{
             return <div>
-                    <Content />
-                    <Bye /> <Bye /> <Content /> <Bye /> <Bye /> <Bye /> <Bye /> <Bye /> <Bye />
-                    <Content />
+                    {/**
+                         <Content />
+                         <Bye />  
+                     **/}
+                    <ClassComponent />
                    </div>
+        }
+
+  
+        
+        class ClassComponent extends React.Component{
+            constructor(props){
+               super(props);
+               this.state={
+                name_ref:"Abhishek",
+                input_text:"",
+               }
+               this.handleClick=this.handleClick.bind(this)
+            }
+          
+            handleClick() {
+             //   alert(this.state.name_ref)
+                setTimeout(()=>{
+                    this.setState({name:this.state.input_text});  
+                },300)           
+           }
+
+           handleChange=(event)=>{
+             //  console.log("event:",event.target.name,event.target.value)
+              this.setState({input_text:event.target.value})
+           }
+             render(){
+               return <div>
+                        <h1>Hi I'm {this.state.name_ref}</h1>
+                        <input name="input_text" onChange={this.handleChange}/>
+                        <button onClick={this.handleClick}>Change the Name</button>
+                      </div>
+             }
         }
 
         ReactDOM.render(<Parent />,document.getElementById("root"))

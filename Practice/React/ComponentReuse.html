@@ -1,0 +1,55 @@
+<body>
+    <div id="root"></div>
+
+
+    <script src="./babel.js"></script>
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+  
+    <script type="text/babel">   
+     
+   
+     //---------------------<Class Componnet>
+       
+        
+  
+    
+   class ComponentReuse extends  React.Component {
+        render() {           
+            return <button>{this.props.num}</button>
+        }
+    }
+    
+        
+        class CodeReUse extends React.Component{         
+           
+             render(){
+               return <div>
+                        <h1>Code Reuse</h1>
+                        
+                        <table>
+                            <tbody>                               
+                                <tr>
+                               <td><ComponentReuse num="1"/> </td>    
+                               <td><ComponentReuse num="2"/> </td>    
+                               <td><ComponentReuse num="3"/> </td>      
+                            </tr>
+                            <tr>
+                                <td><ComponentReuse num="4"/> </td>      
+                                <td><ComponentReuse num="5"/> </td>      
+                                <td><ComponentReuse num="6"/> </td>      
+                            </tr>
+                            <tr>
+                                <td><ComponentReuse num="7"/> </td>      
+                                <td><ComponentReuse num="8"/> </td>      
+                                <td><ComponentReuse num="9"/> </td>    
+                            </tr>   
+                             </tbody>
+                        </table>    
+                      </div>
+             }
+        }
+
+        ReactDOM.render(<CodeReUse />,document.getElementById("root"))
+    </script>
+</body>
