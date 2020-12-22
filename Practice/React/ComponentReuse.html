@@ -1,3 +1,18 @@
+
+<head>
+    <style>
+        .center-table{
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-40%,-50%);
+        }
+        button{
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
 <body>
     <div id="root"></div>
 
@@ -15,34 +30,60 @@
   
     
    class ComponentReuse extends  React.Component {
-        render() {           
-            return <button>{this.props.num}</button>
+       state={
+           value:null
+       }
+   
+   
+     clickHandle=()=>{      
+         this.props.childClick();
+     }
+        render() {                   
+            return <button onClick={this.clickHandle}>{this.props.num}</button>
+         
         }
     }
     
         
         class CodeReUse extends React.Component{         
            
+           state={
+               squares:Array(9).fill(null),
+               isXNext:false
+           }
+          
+          
+            parentClickHandle=(index,event)=>{       
+                console.log("index:",index)                 
+                    let squares_copy=this.state.squares;
+                    squares_copy[index]=this.state.isXNext?"O":"X";
+                    this.setState({squares:squares_copy,isXNext:!this.state.isXNext});
+            }
+
+
              render(){
+                
+                 const {squares}=this.state;
+
                return <div>
                         <h1>Code Reuse</h1>
                         
-                        <table>
+                        <table className="center-table">
                             <tbody>                               
                                 <tr>
-                               <td><ComponentReuse num="1"/> </td>    
-                               <td><ComponentReuse num="2"/> </td>    
-                               <td><ComponentReuse num="3"/> </td>      
+                               <td><ComponentReuse num={squares[0]} childClick={this.parentClickHandle.bind(this,0)}/> </td>    
+                               <td><ComponentReuse num={squares[1]} childClick={this.parentClickHandle.bind(this,1)}/> </td>    
+                               <td><ComponentReuse num={squares[2]} childClick={this.parentClickHandle.bind(this,2)}/> </td>      
                             </tr>
                             <tr>
-                                <td><ComponentReuse num="4"/> </td>      
-                                <td><ComponentReuse num="5"/> </td>      
-                                <td><ComponentReuse num="6"/> </td>      
+                                <td><ComponentReuse num={squares[3]} childClick={this.parentClickHandle.bind(this,3)}/> </td>      
+                                <td><ComponentReuse num={squares[4]} childClick={this.parentClickHandle.bind(this,4)}/> </td>      
+                                <td><ComponentReuse num={squares[5]} childClick={this.parentClickHandle.bind(this,5)}/> </td>      
                             </tr>
                             <tr>
-                                <td><ComponentReuse num="7"/> </td>      
-                                <td><ComponentReuse num="8"/> </td>      
-                                <td><ComponentReuse num="9"/> </td>    
+                                <td><ComponentReuse num={squares[6]} childClick={this.parentClickHandle.bind(this,6)}/> </td>      
+                                <td><ComponentReuse num={squares[7]} childClick={this.parentClickHandle.bind(this,7)}/> </td>      
+                                <td><ComponentReuse num={squares[8]} childClick={this.parentClickHandle.bind(this,8)}/> </td>    
                             </tr>   
                              </tbody>
                         </table>    
