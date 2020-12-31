@@ -59,7 +59,7 @@ export default  class CodeReUse extends Component{
                      </tr>   
                       </tbody>
                  </table>   
-                 <button onClick={this.findWinner}>Calculate Winner</button> 
+               
                </div>
       }
  }
