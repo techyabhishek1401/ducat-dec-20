@@ -1,0 +1,11 @@
+.center-table{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-40%,-50%);
+  }
+ .square{
+    width: 50px;
+    height: 50px;
+  }
+  
